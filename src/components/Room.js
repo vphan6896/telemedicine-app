@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Video from 'twilio-video';
 import Participant from './Participant';
+import {Container} from 'react-bootstrap';
 
 const Room = ({ roomName, token, handleLogout }) => {
   const [room, setRoom] = useState(null);
@@ -49,6 +50,10 @@ const Room = ({ roomName, token, handleLogout }) => {
     <div className="room">
       <h2>Room: {roomName}</h2>
       <button onClick={handleLogout}>Log out</button>
+      <div class="btn-group-vertical">
+      <button type="button" class="btn btn-secondary">Click here to Mute</button>
+      <button type="button" class="btn btn-secondary">Click here to turn of camera</button>
+      </div>
       <div className="local-participant">
         {room ? (
           <Participant
