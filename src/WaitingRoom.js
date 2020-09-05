@@ -2,20 +2,38 @@ import React from 'react';
 import './App.css';
 import {Button, Form, Container} from 'react-bootstrap'
 import styled from 'styled-components';
+import Helmet from 'react-helmet';
+
 
 const Styles = styled.div`
-    font-family: Times New Roman;
-    font-size: 1.5em;
+    font-family: Roboto;
+    font-size: 1.75em;
     text-align: center;
     color: black;
+    padding:0.15em;
 `;
 const Style = styled.h1`
   font-size: 3.0em;
   text-align: center;
-  color: black;
-  background: #ffebcd;
-  padding: 1.0em;
+  color: white;
+  font-family: Roboto;
+  background: darkslateblue;
+  padding: 0.5em;
 `;
+
+
+const Button1 = styled.button`
+  font-size: 0.75em;
+  text-align: center;
+  color: black;
+  font-family: Roboto;
+  background: white;
+  padding: 0.25em 0.5em;
+  border: 2px solid darkslateblue;
+`;
+
+
+
 const WaitingRoom = ({
   username,
   // roomName,
@@ -24,6 +42,7 @@ const WaitingRoom = ({
 }) => {
   return(
   <Form onSubmit={handleSubmit}>
+  <Helmet bodyAttributes={{style: 'background-color : mintcream'}}/>
   <Style>
   <Form.Group>
     <Form.Label className="title-label">Waiting Room</Form.Label>
@@ -32,21 +51,25 @@ const WaitingRoom = ({
   <br />
   <Styles>
   <Form.Group controlId="formName">
-    <Form.Label className="normal-label">Name</Form.Label>
+    <Form.Label>Name</Form.Label>
     <br />
     <Form.Control type="text" onChange={handleUsernameChange} value={username}/>
   </Form.Group>
-  <br />
+
   {/* <Form.Group controlId="formRoomName">
     <Form.Label className="normal-label">Room Name</Form.Label>
     <br />
     <Form.Control type="text" />
   </Form.Group> */}
   <br />
-  <Button variant="primary" type="submit" size="lg">
-    Submit
-  </Button>
-  </Styles>
+    <Button1>
+      Submit
+    </Button1>
+    </Styles>
+  <h2 style={{textAlign:"center",fontFamily:"Roboto", lineHeight:"1.75em"}}>
+    Incoming appointment with Dr. Jimmy
+  </h2>
+
   </Form>
   
   );
