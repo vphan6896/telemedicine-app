@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Video from 'twilio-video';
 import Participant from './Participant';
-import {Container} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 
 const Room = ({ roomName, token, handleLogout }) => {
   const [room, setRoom] = useState(null);
@@ -50,22 +50,32 @@ const Room = ({ roomName, token, handleLogout }) => {
     <div className="room">
       <h2>Room: {roomName}</h2>
       <button onClick={handleLogout}>Log out</button>
-      <div class="btn-group-vertical">
-      <button type="button" class="btn btn-secondary">Click here to Mute</button>
-      <button type="button" class="btn btn-secondary">Click here to turn of camera</button>
-      </div>
-      <div className="local-participant">
-        {room ? (
-          <Participant
-            key={room.localParticipant.sid}
-            participant={room.localParticipant}
-          />
-        ) : (
-          ''
-        )}
-      </div>
-      <h3>Remote Participants</h3>
-      <div className="remote-participants">{remoteParticipants}</div>
+
+      <Container>
+          <div className="btn-group-vertical">
+          <button type="button" className="btn btn-secondary">Click here to Mute</button>
+          <button type="button" className="btn btn-secondary">Click here to turn off camera</button>
+          </div>
+          <Row className={"local-participant justify-content-md-center"}>
+            <Col>
+                <div>
+                    {room ? (
+                        <Participant
+                            key={room.localParticipant.sid}
+                            participant={room.localParticipant}
+                        />
+                    ) : (
+                        ''
+                    )}
+                </div>
+            </Col>
+            <Col>
+                <div>{remoteParticipants[0]}</div>
+            </Col>
+          </Row>
+      </Container>
+
+
     </div>
   );
 };

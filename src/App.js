@@ -11,7 +11,6 @@ import VideoChat from './components/VideoChat';
 function App() {
 	return (
 		<div className="app">
-			<header></header>
 			<main>
 				<VideoChat />
 			</main>
