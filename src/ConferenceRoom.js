@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Video from 'twilio-video';
 
 const ConferenceRoom = () => {
-	return (
-		<div>
-			Hello
-		</div>
-	);
+	return (<div></div>);
 }
 
 export default ConferenceRoom;
