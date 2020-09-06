@@ -54,7 +54,7 @@ const Participant = ({ participant }) => {
 	useEffect(() => {
 		const audioTrack = audioTracks[0];
 		if (audioTrack) {
-			audioTrack.attach(videoRef.current);
+			audioTrack.attach(audioRef.current);
 			return () => {
 				audioTrack.detach();
 			};
