@@ -17,7 +17,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
-.env
+.env*
 MyProject29352-2f82678701b1.json
 Tips.txt
 
