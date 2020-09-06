@@ -29,8 +29,8 @@ app.get('/video/token', (req, res) => {
   const room = req.query.room;
   const token = videoToken(identity, room, config);
   sendTokenResponse(token, res);
-
 });
+
 app.post('/video/token', (req, res) => {
   const identity = req.body.identity;
   const room = req.body.room;
