@@ -42,8 +42,11 @@ const WaitingRoom = ({
 }) => {
   return(
   <Form onSubmit={handleSubmit}>
+    <br/>
+    <br/>
   <Helmet bodyAttributes={{style: 'background-color : mintcream'}}/>
   <Style>
+
   <Form.Group>
     <Form.Label className="title-label">Waiting Room</Form.Label>
   </Form.Group>
