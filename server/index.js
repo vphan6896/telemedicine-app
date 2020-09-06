@@ -3,11 +3,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const { videoToken } = require('./tokens');
+const path = require("path");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(pino);
+
+app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 const sendTokenResponse = (token, res) => {
   res.set('Content-Type', 'application/json');
@@ -36,6 +40,10 @@ app.post('/video/token', (req, res) => {
   const room = req.body.room;
   const token = videoToken(identity, room, config);
   sendTokenResponse(token, res);
+});
+
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
 });
 
 app.listen(3001, () =>
