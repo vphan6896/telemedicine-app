@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Video from 'twilio-video';
 import Participant from './Participant';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Modal} from 'react-bootstrap';
+import ReactPlayer from "react-player";
 
 const Room = ({ roomName, token, handleLogout }) => {
   const [room, setRoom] = useState(null);
@@ -48,6 +49,15 @@ const Room = ({ roomName, token, handleLogout }) => {
 
   return (
     <div className="room">
+        <Modal className={""} size={"lg"} show={true}>
+            <Modal.Title>
+                How to enable webcam and microphone
+            </Modal.Title>
+            <Modal.Body>
+                <ReactPlayer playing={true} url={"https://www.youtube.com/watch?v=guv6kkVcxdU"}></ReactPlayer>
+            </Modal.Body>
+        </Modal>
+
       <h2>Room: {roomName}</h2>
       <button onClick={handleLogout}>Log out</button>
 
