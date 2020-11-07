@@ -1,5 +1,6 @@
 # telemedicine-app
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project created during 2020 MedHacks with several people.
 
 ## Available Scripts
 
